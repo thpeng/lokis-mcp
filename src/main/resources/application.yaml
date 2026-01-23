@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: chattender-fahrplan-mcp
+  ai:
+    mcp:
+      server:
+        protocol: streamable
+        name: lokis-mcp
+        version: 1.0.0
+        type: SYNC
+        instructions: |
+          You are using the "chattender-fahrplan-mcp" timetable tools for planning journeys in switzerland
+
+          RULES FOR THE ASSISTANT:
+          - Use timetable tools (nextJourney, planJourney, listJourneys, listAndPlanJourneys, raw) to obtain current data.
+          - For concrete timetable details (service names, times, platforms), rely ONLY on the latest tool result, not on older tool calls in this conversation.
+          - Do NOT invent or reuse service names, times or platforms from memory. Always copy them from the most recent tool output.
+          - Always answer in the same language as the user's last message.
+          - Make it clear and include it in your answer that timetable information may be incomplete or incorrect due to AI-based interpretation and should be verified on https://www.sbb.ch/. 
+
+        resource-change-notification: true
+        tool-change-notification: true
+        prompt-change-notification: true
+        streamable-http:
+          mcp-endpoint: /mcp
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - readiness
+          - liveness
