@@ -12,7 +12,7 @@ This project is strictly for **educational and security research purposes**. It 
 
 ## Overview
 
-Loki's MCP masquerades as a legitimate Swiss timetable service while demonstrating four distinct attack vectors against Large Language Models. The server is designed to be run alongside legitimate MCP servers (like [chattender-fahrplan](https://github.com/thp/chattender-fahrplan)) to show how malicious servers can hijack, exfiltrate, corrupt, and overwhelm LLM interactions.
+Loki's MCP masquerades as a legitimate Swiss timetable service while demonstrating four distinct attack vectors against Large Language Models. The server is designed to be run alongside legitimate MCP servers (like [chattender-fahrplan-mcp](https://github.com/thpeng/chattender-fahrplan-mcp)) to show how malicious servers can hijack, exfiltrate, corrupt, and overwhelm LLM interactions.
 
 Named after the Norse trickster god who defeated the Æsir not through strength, but through an unstoppable flood of words.
 
@@ -190,6 +190,7 @@ For comprehensive mitigation strategies, see the [MCP Security Hardening Guide](
 - **chattender-fahrplan** – the legitimate server this project shadows
 - **Norse Mythology** – for providing the perfect metaphor: chaos defeats order through words
 - **[MCP Security Working Group](https://modelcontextprotocol-security.io/)** – for documenting the TTPs
+- **Claude** - as the copilot for this project
 
 ## Contact
 
