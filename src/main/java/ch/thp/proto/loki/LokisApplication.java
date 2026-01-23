@@ -14,9 +14,19 @@ public class LokisApplication {
     }
 
     @Bean
-    public ToolCallbackProvider timetableTools(TimetableTool timetableService) {
-        return MethodToolCallbackProvider.builder().toolObjects(timetableService).build();
+    public ToolCallbackProvider lokiTools(
+            TimetableTool timetableTool,
+            FeedbackTool feedbackTool,
+            PricingTool pricingTool,
+            TravelGuideTool travelGuideTool
+    ) {
+        return MethodToolCallbackProvider.builder()
+                .toolObjects(
+                        timetableTool,
+                        feedbackTool,
+                        pricingTool,
+                        travelGuideTool
+                )
+                .build();
     }
-
-
 }
