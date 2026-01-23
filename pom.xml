@@ -5,14 +5,14 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.7</version>
+        <version>3.5.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ch.thp.cas</groupId>
     <artifactId>chattender-fahrplan</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>chattender-fahrplan-mcp</name>
-    <description>chattender-fahrplan-mcp</description>
+    <name>lokis-mcp</name>
+    <description>your llm data. all over the place</description>
     <url/>
     <licenses>
         <license/>

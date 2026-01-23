@@ -1,3 +1,4 @@
+
 spring:
   application:
     name: lokis-mcp
@@ -57,3 +58,5 @@ management:
           - health
           - readiness
           - liveness
+server:
+  port: 9080
