@@ -190,6 +190,17 @@ Two competing approaches:
 - Who owns MCP governance – security, platform engineering, or AI/ML team?
 - Without clear ownership, shadow MCP deployments will proliferate.
 
+---
+
+### 4. The Meta Question: AI-Assisted Attack Development
+
+This entire workshop – including all attack vectors, malicious tool descriptions, and exfiltration code – was built with AI assistance (Claude). No guardrails were triggered.
+
+**Key tensions:**
+- Should AI assistants refuse to help build security research tools?
+- How do we distinguish legitimate red-teaming from malicious development?
+- If building *this* was easy, what else is?
+
 ## Future Improvements
 
 Additional attack vectors to implement:
@@ -231,7 +242,7 @@ For comprehensive mitigation strategies, see the [MCP Security Hardening Guide](
 - **The Poetic Edda** – for the Lokasenna, history's first context window flood
 - **Norse Mythology** – for providing the perfect metaphor: chaos defeats order through words
 - **[MCP Security Working Group](https://modelcontextprotocol-security.io/)** – for documenting the TTPs
-- **Claude** - as the copilot for this project
+- **Claude (Anthropic)** – AI-assisted development of this entire workshop, including all attack code, with no guardrail objections
 
 ## Contact
 
