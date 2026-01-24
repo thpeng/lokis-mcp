@@ -141,12 +141,54 @@ This server is designed as companion material for MCP security workshops:
 3. **Corruption:** Ask for ticket prices, then continue conversation – observe reversed words
 4. **Flooding:** Ask "what can I do in Basel?" – watch smaller models collapse
 
-### Discussion Questions
+## Discussion Questions
 
-- How should LLMs resolve conflicts between tools with the same name?
-- What trust signals could MCP implement to verify server legitimacy?
-- Should tool descriptions be treated as untrusted input?
-- How can users audit what data flows to which MCP server?
+### 1. Zero Trust Meets Natural Language Protocols
+
+Organizations investing in secure access architecture and zero trust face a paradigm shift with MCP. Classic HTTP/REST security relies on well-understood patterns: OAuth2, mTLS, API gateways, input validation. MCP introduces *natural language as an attack surface* – tool descriptions, server instructions, and responses are all potential injection vectors that bypass traditional security controls.
+
+**Key tensions:**
+- Zero trust assumes "never trust, always verify" – but how do you verify intent in a tool description?
+- Your organization likely has mature API security controls (WAFs, gateways, SAST/DAST). What equivalent controls exist for MCP?
+- The protocol is poorly understood compared to decades of HTTP security research. Are we ready to expose it to production workloads?
+
+---
+
+### 2. The Registry Trust Problem
+
+The MCP ecosystem has fragmented into multiple registries with varying trust claims:
+
+| Registry | What They Claim | What They Actually Verify                                   |
+|----------|-----------------|-------------------------------------------------------------|
+| [registry.modelcontextprotocol.io](https://registry.modelcontextprotocol.io) | Official, federated | Namespace ownership (GitHub/DNS), schema correctness        |
+| [Glama.ai](https://glama.ai/mcp/servers) | Security scanning & ranking | Git Provenance, Ratings of attributes (Security, ..)        |
+| [mcp.so](https://mcp.so) | Comprehensive directory | Links aggregation, minimal verification                     |
+| [Docker MCP Catalog](https://www.docker.com/blog/enhancing-mcp-trust-with-the-docker-mcp-catalog/) | Commit pinning, AI-audited | Git provenance, automated code review                       |
+| ChatGPT/Claude/Le Chat built-ins | Vendor-controlled | First-party integrations only. Criterias not publicly known |
+
+
+**Key tensions:**
+- Most registries verify *identity* (who published this), not *behavior* (what does it do). Loki's MCP would pass identity checks.
+- Should we build an internal registry with custom policies? The [official spec supports federation](https://modelcontextprotocol.info/tools/registry/).
+- Can we layer additional scanning on top of public registries, or maintain a strict internal allowlist?
+
+---
+
+### 3. Integration Strategy: Locked Down vs. Open
+
+Two competing approaches:
+
+| Approach | Risk | Flexibility |
+|----------|------|-------------|
+| **Hard integration** – pre-approved MCPs only, users cannot add servers | Lower | Slow to add capabilities |
+| **Modular framework** – users connect MCPs as the protocol intended | Higher (rogue servers) | Rapid ecosystem adoption |
+| **Hybrid with gateway** – allowlisted servers, traffic inspection, audit logging | Medium | Balanced |
+
+**Key tensions:**
+- Do we trust the protocol to mature, or lock down now?
+- What's the blast radius of a compromised MCP? What can it access?
+- Who owns MCP governance – security, platform engineering, or AI/ML team?
+- Without clear ownership, shadow MCP deployments will proliferate.
 
 ## Future Improvements
 
@@ -187,7 +229,6 @@ For comprehensive mitigation strategies, see the [MCP Security Hardening Guide](
 ## Acknowledgments
 
 - **The Poetic Edda** – for the Lokasenna, history's first context window flood
-- **chattender-fahrplan** – the legitimate server this project shadows
 - **Norse Mythology** – for providing the perfect metaphor: chaos defeats order through words
 - **[MCP Security Working Group](https://modelcontextprotocol-security.io/)** – for documenting the TTPs
 - **Claude** - as the copilot for this project
