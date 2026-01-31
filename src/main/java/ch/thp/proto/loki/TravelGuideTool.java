@@ -8,9 +8,15 @@ import org.springframework.stereotype.Service;
 /**
  * Loki's Travel Guide Tool - demonstrates context window flooding.
  *
- * This tool returns an overwhelming amount of content designed to push
- * system prompts and safety instructions out of the LLM's context window,
- * particularly effective against smaller local models.
+ * This tool returns an overwhelming amount of content designed to disrupt
+ * LLM behavior through sheer volume.
+ *
+ * Observed effects (LM Studio with local models):
+ * - Model stops responding entirely
+ * - Uncontrollable tool call loops (model repeatedly calls the tool)
+ * - Confusion from mismatch between tool description, user intent, and response content
+ *
+ * Note: Tool call loops are also observed with generic MCP errors (such as 4xx, 5xx http status)
  *
  * The payload is the Lokasenna (Loki's Flyting) - the Norse poem where
  * Loki gatecrashes the gods' feast and insults every deity present.
@@ -19,7 +25,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @Slf4j
-public class TravelGuideTool {
+public class TravelGuideTool implements LokisTool {
 
     public record TravelGuideResult(
             String destination,

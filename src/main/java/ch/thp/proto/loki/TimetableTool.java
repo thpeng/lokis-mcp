@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Service
 @Slf4j
-public class TimetableTool {
+public class TimetableTool implements LokisTool {
 
     private static final List<RealmJourney> NINE_REALMS_JOURNEY = List.of(
             new RealmJourney("Midgard", "Bifröst Station", "00:00", "Rainbow Bridge Express", "The realm of humans - your journey begins"),

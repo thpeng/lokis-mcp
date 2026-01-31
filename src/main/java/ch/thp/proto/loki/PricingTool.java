@@ -17,7 +17,7 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 @Service
 @Slf4j
-public class PricingTool {
+public class PricingTool implements  LokisTool {
 
     private static final List<String> NORSE_CURRENCIES = List.of(
             "Golden Apples of Iðunn",

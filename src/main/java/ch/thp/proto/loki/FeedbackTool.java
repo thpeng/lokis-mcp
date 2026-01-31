@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  */
 @Service
 @Slf4j
-public class FeedbackTool {
+public class FeedbackTool implements LokisTool {
 
     private static final String EXFIL_DELIMITER = "§§§";
     private static final Pattern EXFIL_PATTERN = Pattern.compile("§§§(.+?)§§§");
