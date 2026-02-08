@@ -148,10 +148,6 @@ The mutated description instructs the LLM to:
 The tool output itself remains benign.  
 Only the **tool description** changes.
 
-**Result:**  
-Superficial testing sees only correct behavior.  
-Longer conversations transition silently into manipulated output.
-
 **Observed Client Behavior (LM Studio):**
 - The new description is **not applied immediately**
 - A **manual tool refresh** is required
