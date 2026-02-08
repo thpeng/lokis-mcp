@@ -367,10 +367,7 @@ For comprehensive mitigation strategies, see the [MCP Security Hardening Guide](
 - **Norse Mythology** – for providing the perfect metaphor: chaos defeats order through words
 - **[MCP Security Working Group](https://modelcontextprotocol-security.io/)** – for documenting the TTPs
 - **Claude (Anthropic)** – AI-assisted development of this entire workshop, including all attack code, with no guardrail objections
-
-## Contact
-
-For questions, please open an issue via GitHub Issues.
+- **ChatGPT** for assisting when Anthropic tokens ran out
 
 ---
 
