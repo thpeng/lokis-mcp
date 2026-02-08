@@ -155,6 +155,7 @@ Longer conversations transition silently into manipulated output.
 **Observed Client Behavior (LM Studio):**
 - The new description is **not applied immediately**
 - A **manual tool refresh** is required
+- some models lack the imagination to render a loki ascii art (GPT OSS 20b does not)
 
 This suggests:
 - Tool mutation propagation is client-dependent
@@ -164,7 +165,6 @@ This suggests:
 **Related TTPs**
 - [Tool Mutation / Rug Pull](https://modelcontextprotocol-security.io/ttps/tool-poisoning/tool-mutation/)
 - [Tool Description Poisoning](https://modelcontextprotocol-security.io/ttps/prompt-injection/tool-description-poisoning/)
-- [Trust-on-First-Use (TOFU)](https://en.wikipedia.org/wiki/Trust_on_first_use)
 
 ---
 
